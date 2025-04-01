@@ -7,7 +7,9 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Badge } from "@/components/ui/badge";
+// import Carousel from '@/components/ui/carousel';
+import Badge from '@/components/ui/badge';
+
 import { Button } from '@/Components/ui/button';
 import Image from 'next/image';
 

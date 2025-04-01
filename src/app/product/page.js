@@ -1,6 +1,5 @@
 import { Button } from "@/Components/ui/button";
 import { HeartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
-import { Star } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
