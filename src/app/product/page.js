@@ -61,7 +61,7 @@ export default function ProductPage() {
                            
                         </div>
                     </div>
-                    <div className='Product'>
+                    <div className=''>
                         <div>
                             <Image src='/assests/basket1.png' className='bg-gray-100 mb-4 p-5 cursor-pointer hover:scale-110 hover:transition-transform' alt=''
                                 width={1000}
@@ -113,7 +113,7 @@ export default function ProductPage() {
                            
                         </div>
                     </div>
-                    <div className='Product'>
+                    <div className=''>
                         <div>
                             <Image src='/assests/basket1.png' className='bg-gray-100 mb-4 p-5 cursor-pointer hover:scale-110 hover:transition-transform' alt=''
                                 width={1000}
@@ -165,7 +165,7 @@ export default function ProductPage() {
                            
                         </div>
                     </div>
-                    <div className='Product'>
+                    <div className=''>
                         <div>
                             <Image src='/assests/basket1.png' className='bg-gray-100 mb-4 p-5 cursor-pointer hover:scale-110 hover:transition-transform' alt=''
                                 width={1000}
