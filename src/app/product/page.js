@@ -7,7 +7,7 @@ import React from "react";
 export default function ProductPage() {
     return (
         <>
-            <div className="contianer p-10">
+            <div className="contianer p-10  mx-17">
                 <div className="grid grid-cols-4 items-center gap-10">
                     <div className='Product'>
                         <div>
