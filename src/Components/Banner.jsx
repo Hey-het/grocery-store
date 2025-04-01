@@ -6,11 +6,11 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/Components/ui/Carousel"
 // import Carousel from '@/components/ui/carousel';
-import Badge from '@/components/ui/badge';
+import {Badge} from '@/Components/ui/Badge';
 
-import { Button } from '@/Components/ui/button';
+import { Button } from '@/Components/ui/Button';
 import Image from 'next/image';
 
 export default function Banner() {
