@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/Carousel"
 // import { Badge } from '@/components/ui/badge';
 
-import { Button } from '@/Components/ui/Button';
+import { Button } from '@/Components/ui/button';
 import Image from 'next/image';
 import { Badge } from '@/Components/ui/Badge';
 
