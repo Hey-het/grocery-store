@@ -1,7 +1,7 @@
 import { Button } from "@/Components/ui/Button";
 import { HeartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import React from "react";
+
 
 export default function ProductPage() {
     return (
