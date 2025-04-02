@@ -1,4 +1,4 @@
-
+import React from "react";
 
 import {
     Carousel,
@@ -6,12 +6,12 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-} from "@/components/ui/Carousel"
-// import { Badge } from '@/components/ui/badge';
+} from "@/Components/ui/carousel"
+import { Badge } from '@/components/ui/badge';
 
 import { Button } from '@/Components/ui/button';
 import Image from 'next/image';
-import { Badge } from '@/Components/ui/Badge';
+
 
 export default function Banner() {
     return (

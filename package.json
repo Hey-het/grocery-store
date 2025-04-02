@@ -17,8 +17,8 @@
     "embla-carousel-react": "^8.5.2",
     "lucide-react": "^0.486.0",
     "next": "15.2.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.0.0",
+  "react-dom": "^18.0.0",
     "tailwind-merge": "^3.1.0",
     "tw-animate-css": "^1.2.5"
   },
@@ -27,6 +27,19 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "tailwindcss": "^4"
-  }
+    "tailwindcss": "^4.1.0"
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hey-het/grocery-store.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hey-het/grocery-store/issues"
+  },
+  "homepage": "https://github.com/Hey-het/grocery-store#readme"
 }
