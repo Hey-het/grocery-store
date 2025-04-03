@@ -3,10 +3,10 @@ import { HeartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 
-export default function ProductPage() {
+export default function ProductPage(){
     return (
         <>
-            <div className="contianer p-10  mx-17">
+            <div className="contianer">
                 <div className="grid grid-cols-4 items-center gap-10">
                     <div className='Product'>
                         <div>

@@ -2,14 +2,14 @@
 
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingCartIcon, UserCircleIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, ShoppingCartIcon, UserCircleIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
+  // { name: 'Product', href: '#' },
+  { name: 'Shop', href: '#' },
+  { name: 'About', href: '#' },
+  { name: 'Contact Us', href: '#' },
 ]
 
 export default function HeaderPage() {
@@ -17,13 +17,13 @@ export default function HeaderPage() {
 
   return (
     <div className="bg-white">
-      <header className="absolute inset-x-0 top-0 z-50">
-        <nav aria-label="Global" className="container mx-auto flex items-center justify-between py-6 px-0">
+      <header className="absolute inset-x-0 top-0 z-50 ">
+        <nav aria-label="Global" className="container  flex items-center justify-between py-6 mx-auto">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-             <Image src="/assests/logo.png" width={120} height={50} 
-             alt='logo'/>
+              <Image src="/assests/logo.png" width={180} height={50}
+                alt='logo' className='ml-12' />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -44,17 +44,17 @@ export default function HeaderPage() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-          <a className='bg-gray-200 p-2 rounded-full'>
-              <MagnifyingGlassIcon width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform'/>
-              </a>
-              <a className='bg-gray-200 p-2 rounded-full'>
-              <UserCircleIcon 
-              width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform'/>
-              </a>
-              <a className='bg-gray-200 p-2 rounded-full'>
-              <ShoppingCartIcon width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform'/>
-              </a>
-              
+            <a className='bg-gray-200 p-2 rounded-full'>
+              <MagnifyingGlassIcon width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform' />
+            </a>
+            <a className='bg-gray-200 p-2 rounded-full'>
+              <UserCircleIcon
+                width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform' />
+            </a>
+            <a className='bg-gray-200 p-2 rounded-full'>
+              <ShoppingCartIcon width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform' />
+            </a>
+
           </div>
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -91,19 +91,24 @@ export default function HeaderPage() {
                     </a>
                   ))}
                 </div>
-                <div className="py-6 flex gap-5">
-                <a className='bg-gray-200 p-2 rounded-full'>
-              <MagnifyingGlassIcon width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform'/>
-              </a>
-              <a className='bg-gray-200 p-2 rounded-full'>
-              <UserCircleIcon 
-              width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform'/>
-              </a>
-              <a className='bg-gray-200 p-2 rounded-full'>
-              <ShoppingCartIcon width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform'/>
-              </a>
-              
+                <div className="py-6 flex gap-2">
+                  <a className="bg-gray-200 p-1 rounded-full">
+                    <MagnifyingGlassIcon
+                      width={22}
+                      className="cursor-pointer hover:scale-110 hover:transition-transform" />
+                  </a>
+                  <a className="bg-gray-200 p-1 rounded-full">
+                    <UserCircleIcon
+                      width={22}
+                      className="cursor-pointer hover:scale-110 hover:transition-transform" />
+                  </a>
+                  <a className="bg-gray-200 p-1 rounded-full">
+                    <ShoppingBagIcon
+                      width={22}
+                      className="cursor-pointer hover:scale-110 hover:transition-transform" />
+                  </a>
                 </div>
+
               </div>
             </div>
           </DialogPanel>
@@ -123,7 +128,7 @@ export default function HeaderPage() {
             className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.122rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div>
-       
+
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
