@@ -1,9 +1,15 @@
 'use client'
-
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, ShoppingCartIcon, UserCircleIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
+import { Badge } from "@/components/ui/badge"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
+import { Button } from "@/Components/ui/button"
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
+
 
 const navigation = [
   // { name: 'Product', href: '#' },
@@ -13,17 +19,48 @@ const navigation = [
 ]
 
 export default function HeaderPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // const isBrowser = typeof window !== "undefined";
+  // const isLogin = isBrowser && window.sessionStorage.getItem("jwt") ? true : false;
+  // const user = isBrowser ? JSON.stringify(sessionStorage.getItem("user")) : null;
+  // const jwt = isBrowser ? JSON.stringify(sessionStorage.getItem("jwt")) : null;
+
+  const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState(null);
+  const [jwt, setJwt] = useState(null);
+
+  useEffect(() => {
+    const storedJwt = sessionStorage.getItem("jwt");
+    const storedUser = sessionStorage.getItem("user");
+
+    if (storedJwt) {
+      setIsLogin(true);
+      setJwt(storedJwt);
+      setUser(storedUser);
+    }
+  }, []);
+
+
+  const router = useRouter();
+
+  function onSignOut() {
+    // sessionStorage.clear();
+    sessionStorage.removeItem("jwt");
+    sessionStorage.removeItem("user");
+    window.location.reload();
+    router.push("/sign-in")
+  }
 
   return (
-    <div className="bg-white">
-      <header className="absolute inset-x-0 top-0 z-50 ">
+    <div className="bg-white ">
+      <header className="absolute inset-x-0 top-0 z-50 p-2 ml-3">
         <nav aria-label="Global" className="container  flex items-center justify-between py-6 mx-auto">
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="#" className="-m-1.5 p-1.5 ">
               <span className="sr-only">Your Company</span>
-              <Image src="/assests/logo.png" width={180} height={50}
-                alt='logo' className='ml-12' />
+              <Image src="/assests/logo.png" width={150} height={50}
+                alt='logo' className='ml-12 ' />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -43,19 +80,68 @@ export default function HeaderPage() {
               </a>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-            <a className='bg-gray-200 p-2 rounded-full'>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-2 mr-15">
+            <a className=''>
               <MagnifyingGlassIcon width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform' />
             </a>
-            <a className='bg-gray-200 p-2 rounded-full'>
-              <UserCircleIcon
-                width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform' />
+
+            <a className=''>
+              <ShoppingBagIcon width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform' />
             </a>
-            <a className='bg-gray-200 p-2 rounded-full'>
-              <ShoppingCartIcon width={22} className=' cursor-pointer hover:scale-110 hover:transition-transform' />
+            <a className=' '>
+              <Badge className="bg-green-500 cursor-pointer flex items-center rounded-full hover:scale-110 hover:transition-transform">0</Badge>
             </a>
 
+
+              {/* {!isLogin ? (
+                  <Link href="/sign-in">
+                    <Button className="bg-green-600 hover:bg-green-500 shadow-lg">
+                      Log In
+                    </Button>
+                  </Link>
+                ) : 
+                (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger>
+                      <UserCircleIcon
+                        width={22}
+                        className=" cursor-pointer hover:scale-110 hover:transition-transform" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem>Profile</DropdownMenuItem>
+                      <DropdownMenuItem>My Orders</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => onSignOut()}>LogOut</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )
+              } */}
+
+              {!isLogin ? (
+                <Link href="/sign-in">
+                  <Button className="bg-green-600 hover:bg-green-500 shadow-lg">Log In</Button>
+                </Link>
+              ) : (
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <UserCircleIcon
+                      width={22}
+                      className="cursor-pointer hover:scale-110 hover:transition-transform"
+                    />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Profile</DropdownMenuItem>
+                    <DropdownMenuItem>My Orders</DropdownMenuItem>
+                    <DropdownMenuItem onClick={onSignOut}>LogOut</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+
           </div>
+
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
           <div className="fixed inset-0 z-50" />
@@ -91,22 +177,30 @@ export default function HeaderPage() {
                     </a>
                   ))}
                 </div>
+
                 <div className="py-6 flex gap-2">
                   <a className="bg-gray-200 p-1 rounded-full">
                     <MagnifyingGlassIcon
                       width={22}
                       className="cursor-pointer hover:scale-110 hover:transition-transform" />
                   </a>
-                  <a className="bg-gray-200 p-1 rounded-full">
-                    <UserCircleIcon
-                      width={22}
-                      className="cursor-pointer hover:scale-110 hover:transition-transform" />
-                  </a>
-                  <a className="bg-gray-200 p-1 rounded-full">
+
+                  <a className="bg-gray-200 p-2 rounded-full">
                     <ShoppingBagIcon
                       width={22}
                       className="cursor-pointer hover:scale-110 hover:transition-transform" />
                   </a>
+                  <a className='bg-gray-200 p-2 rounded-full'>
+                    <Badge className="cursor-pointer flex items-center rounded-full hover:scale-110 hover:transition-transform">5</Badge>
+                  </a>
+                  <div className="bg-gray-200 p-1 rounded-full">
+
+                    <UserCircleIcon
+                      width={22}
+                      className="cursor-pointer hover:scale-110 hover:transition-transform" />
+
+
+                  </div>
                 </div>
 
               </div>

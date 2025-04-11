@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",    // This is important to tell the compiler to resolve from the root directory.
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]  // Corrects the alias @/ to point to the src/ directory
+      "@/*": ["src/*"]
     }
   }
 }
